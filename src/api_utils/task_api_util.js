@@ -25,6 +25,15 @@ export const createTask = task => {
   return newTask;
 };
 
+export const updateTask = task => {
+  const tasks = fetchTasks();
+  const newTask = {};
+  newTask[task.id] = task;
+  tasks[task.status] = Object.assign({}, tasks[task.status], newTask);
+  saveTasks(tasks);
+  return newTask;
+};
+
 export const deleteTask = task => {
   const tasks = fetchTasks();
   delete tasks[task.id];

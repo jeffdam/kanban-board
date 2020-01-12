@@ -37,9 +37,10 @@ export const createTask = (task) => {
   return receiveTask(newTask);
 };
 
-// export const updateTask = task => dispatch =>
-//   TaskApiUtil.updatetask(task)
-//     .then(task => dispatch(receiveTask(task)));
+export const updateTask = task => {
+  const newTask = TaskApiUtil.updateTask(task);
+  return receiveTask(newTask);
+};
 
 export const deleteTask = task => dispatch =>
   TaskApiUtil.deleteTask(task)

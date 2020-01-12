@@ -20,20 +20,38 @@ class TaskForm extends React.Component {
   }
 
   render() {
+    const { formType } = this.props;
+    const { title, description, dueDate } = this.state;
     return (
       <article>
-        <h2>Task Form</h2>
+        <h2>Task {formType} Form</h2>
         <form onSubmit={this.handleSubmit()}>
-          <label>Title
-            <input type="text" required onChange={this.handleUpdate('title')}/>
+          <label>
+            Title
+            <input
+              type="text"
+              value={title}
+              onChange={this.handleUpdate("title")}
+              required
+            />
           </label>
-          <label>Description
-            <input type="text" onChange={this.handleUpdate('description')}/>
+          <label>
+            Description
+            <input
+              type="text"
+              value={description}
+              onChange={this.handleUpdate("description")}
+            />
           </label>
-          <label>Due Date
-            <input type="date" onChange={this.handleUpdate('dueDate')}/>
+          <label>
+            Due Date
+            <input
+              type="date"
+              value={dueDate}
+              onChange={this.handleUpdate("dueDate")}
+            />
           </label>
-          <button type="submit">Create Task</button>
+          <button type="submit">{formType}</button>
         </form>
       </article>
     );

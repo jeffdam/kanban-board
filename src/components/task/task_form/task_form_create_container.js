@@ -4,6 +4,7 @@ import { createTask } from "../../../actions/task_action";
 
 const mapStateToProps = (_, { status }) => {
   return {
+    formType: "Create",
     task: {
       id: null,
       title: "",
