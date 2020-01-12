@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskFormEditContainer from '../task/task_form/task_form_edit_container';
+import TaskFormEditContainer from '../task_form/task_form_edit_container';
 import TaskInfo from './task_info';
 
 class TaskDisplay extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskDisplayContainer from '../task/task_display_container';
+import TaskDisplayContainer from '../task/task_display/task_display_container';
 import TaskFormCreateContainer from '../task/task_form/task_form_create_container';
 
 class TaskList extends React.Component {
