@@ -40,10 +40,11 @@ export const deleteTask = task => {
   saveTasks(tasks);
 };
 
-export const changeStatus = task => {
+export const changeStatus = (task, dir) => {
+  const change = dir === "up" ? 1 : -1;
   const tasks = fetchTasks();
   delete tasks[task.status][task.id];
-  task.status = STATUSES[STATUSES.indexOf(task.status) + 1];
+  task.status = STATUSES[STATUSES.indexOf(task.status) + change];
   tasks[task.status][task.id] = task;
   saveTasks(tasks);
   return tasks;

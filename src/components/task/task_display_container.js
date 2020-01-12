@@ -4,7 +4,7 @@ import { changeStatus } from "../../actions/task_action";
 
 const mapDispatchToProps = dispatch => {
   return {
-    changeStatus: task => dispatch(changeStatus(task))
+    changeStatus: (task, dir) => dispatch(changeStatus(task, dir))
   };
 };
 
