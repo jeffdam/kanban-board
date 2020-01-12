@@ -72,7 +72,12 @@ i {
   flex-direction: column;
   overflow: auto;
   color: white;
-  font-size: 16pt;
+  font-size: 14pt;
+  width: 100%;
+  li + li {
+    margin-top: 10px;
+    hyphens: auto;
+  }
   margin-bottom: 10px;
   position: relative;
   > * {
