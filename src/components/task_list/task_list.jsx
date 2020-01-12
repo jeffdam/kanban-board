@@ -18,22 +18,17 @@ class TaskList extends React.Component {
 
   render() {
     const { tasks, deleteTask, listType } = this.props;
-    const taskDisplayList = tasks.map((task, idx) => (
+    const taskDisplayList = tasks.map((task, idx) => 
       <TaskDisplayContainer
         key={idx}
         task={task}
         deleteTask={() => deleteTask(task)}
       />
-    ));
-
-    const taskForm = this.state.formDisplayState ? (
-      <TaskFormCreateContainer
-        status={listType}
-        hideForm={this.changeFormState()}
-      />
-    ) : (
-      <button onClick={this.changeFormState()}>Add task</button>
     );
+
+    const taskForm = <TaskFormCreateContainer status={listType} hideForm={this.changeFormState()}/>;
+    const taskFormButton = <button onClick={this.changeFormState()}>Add Task</button>;
+    const taskFormDisplay = this.state.formDisplayState ? taskForm : taskFormButton;
 
     return (
       <article className="task-list">
@@ -43,7 +38,7 @@ class TaskList extends React.Component {
             {taskDisplayList}
           </div>
         </div>
-        {taskForm}
+        {taskFormDisplay}
       </article>
     );
   }
