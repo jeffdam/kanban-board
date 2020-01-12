@@ -8,12 +8,20 @@ class KanbanBoard extends React.Component {
 
   render() {
     return (
-      <section className="kanban-board">
-        <TaskListContainer listType={"backlog"}/>
-        <TaskListContainer listType={"priority"}/>
-        <TaskListContainer listType={"inProgress"}/>
-        <TaskListContainer listType={"completed"}/>
-      </section>
+      <main className="kanban-board">
+        <section className="kanban-board-header">
+          <h2>BACKLOG</h2>
+          <h2>PRIORITY</h2>
+          <h2>IN PROGRESS</h2>
+          <h2>COMPLETED</h2>
+        </section>
+        <section className="kanban-board-lists">
+          <TaskListContainer listType={"backlog"}/>
+          <TaskListContainer listType={"priority"}/>
+          <TaskListContainer listType={"inProgress"}/>
+          <TaskListContainer listType={"completed"}/>
+        </section>
+      </main>
     )
   }
 }
