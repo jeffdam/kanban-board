@@ -36,9 +36,13 @@ class TaskList extends React.Component {
     );
 
     return (
-      <article>
-        <h2>{listType.toUpperCase()}</h2>
-        {taskDisplayList}
+      <article className="task-list">
+        <div>
+          <h2>{listType.toUpperCase()}</h2>
+          <div className="task-list-items">
+            {taskDisplayList}
+          </div>
+        </div>
         {taskForm}
       </article>
     );

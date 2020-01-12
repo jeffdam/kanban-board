@@ -8,7 +8,7 @@ class KanbanBoard extends React.Component {
 
   render() {
     return (
-      <section>
+      <section className="kanban-board">
         <TaskListContainer listType={"backlog"}/>
         <TaskListContainer listType={"priority"}/>
         <TaskListContainer listType={"inProgress"}/>
