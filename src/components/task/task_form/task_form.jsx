@@ -16,6 +16,7 @@ class TaskForm extends React.Component {
     return e => {
       e.preventDefault();
       this.props.formAction(this.state);
+      this.props.changeFormState();
     };
   }
 
