@@ -32,9 +32,10 @@ export const fetchTasks = () => {
   return receiveTasks(tasks);
 };
 
-export const createTask = task => dispatch =>
-  TaskApiUtil.createTask(task)
-    .then(task => dispatch(receiveTask(task)));
+export const createTask = (task) => {
+  const newTask = TaskApiUtil.createTask(task);
+  return receiveTask(newTask);
+};
 
 // export const updateTask = task => dispatch =>
 //   TaskApiUtil.updatetask(task)

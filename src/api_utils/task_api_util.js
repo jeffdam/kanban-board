@@ -1,5 +1,7 @@
+import uniqid from "uniqid";
+
 const saveTasks = tasks => {
-  localStorage.getItem("kanban_board", JSON.stringify(tasks));
+  localStorage.setItem("kanban_board", JSON.stringify(tasks));
 };
 
 export const fetchTasks = () => {
@@ -16,6 +18,7 @@ export const fetchTasks = () => {
 export const createTask = task => {
   const tasks = fetchTasks();
   const newTask = {};
+  task.id = uniqid();
   newTask[task.id] = task;
   tasks[task.status] = Object.assign({}, tasks[task.status], newTask );
   saveTasks(tasks);
