@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskDisplay from '../task/task_display';
+import TaskDisplayContainer from '../task/task_display_container';
 import TaskFormCreateContainer from '../task/task_form/task_form_create_container';
 
 class TaskList extends React.Component {
@@ -18,13 +18,13 @@ class TaskList extends React.Component {
 
   render() {
     const { tasks, deleteTask, listType } = this.props;
-    const taskDisplayList = tasks.map((task, idx) => 
-      <TaskDisplay 
-        key={idx} 
-        task={task} 
-        deleteTask={() => deleteTask(task)} 
-        />
-    );
+    const taskDisplayList = tasks.map((task, idx) => (
+      <TaskDisplayContainer
+        key={idx}
+        task={task}
+        deleteTask={() => deleteTask(task)}
+      />
+    ));
 
     const taskForm = this.state.formDisplayState ? (
       <TaskFormCreateContainer

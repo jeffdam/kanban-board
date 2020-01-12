@@ -20,6 +20,8 @@ class TaskDisplay extends React.Component {
     const editForm = (<TaskFormEditContainer task={task} hideForm={this.changeFormState()}/>);
     const editFormButton = (<button onClick={this.changeFormState()}>Edit</button>);
     const taskForm = this.state.formDisplayState ? editForm : editFormButton;
+    const moveButton = (<button onClick={() => this.props.changeStatus(task)}>Move Up</button>);
+    const changeStatusButton = task.status === "completed" ? "" : moveButton;
 
     return (
       <ul>
@@ -33,6 +35,7 @@ class TaskDisplay extends React.Component {
         <li>
           <button onClick={deleteTask}>Delete</button>
         </li>
+        <li>{changeStatusButton}</li>
       </ul>
     );
   }

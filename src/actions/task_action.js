@@ -65,3 +65,8 @@ export const deleteTask = task => {
   TaskApiUtil.deleteTask(task);
   return removeTask(task);
 };
+
+export const changeStatus = task => {
+  const tasks = TaskApiUtil.changeStatus(task);
+  return receiveTasks(tasks);
+};
