@@ -24,15 +24,22 @@ class TaskForm extends React.Component {
     const { formType } = this.props;
     const { title, description, dueDate } = this.state;
     return (
-      <article>
-        <h2>Task {formType} Form</h2>
+      <article className="task-form">
+        <div className="task-form-header">
+          <h3>{formType} a Task</h3>
+          <i 
+            class="far fa-times-circle"
+            onClick={this.props.hideForm}
+          ></i>
+        </div>
         <form onSubmit={this.handleSubmit()}>
           <label>
-            Title
+            Task
             <input
               type="text"
               value={title}
               onChange={this.handleUpdate("title")}
+              placeholder="Task"
               required
             />
           </label>
@@ -41,6 +48,7 @@ class TaskForm extends React.Component {
             <input
               type="text"
               value={description}
+              placeholder="Description"
               onChange={this.handleUpdate("description")}
             />
           </label>

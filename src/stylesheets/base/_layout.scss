@@ -71,3 +71,33 @@ i {
     opacity: 0.5;
   }
 }
+
+.task-form {
+  .task-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    i {
+      font-size: 12pt;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border: 1px solid grey;
+  color: black;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 12pt;
+  form {
+    display: flex;
+    flex-direction: column;
+    input {
+      box-sizing: border-box;
+      height: 25px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+}
