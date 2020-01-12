@@ -1,5 +1,5 @@
 import React from 'react';
-import BacklogListContainer from '../components/backlog/backlog_list_container';
+import BacklogListContainer from '../components/lists/backlog_list_container';
 
 class KanbanBoard extends React.Component {
   componentDidMount() {

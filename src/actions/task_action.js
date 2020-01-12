@@ -32,7 +32,7 @@ export const fetchTasks = () => {
   return receiveTasks(tasks);
 };
 
-export const createTask = (task) => {
+export const createTask = task => {
   const newTask = TaskApiUtil.createTask(task);
   return receiveTask(newTask);
 };
@@ -42,6 +42,7 @@ export const updateTask = task => {
   return receiveTask(newTask);
 };
 
-export const deleteTask = task => dispatch =>
-  TaskApiUtil.deleteTask(task)
-    .then(task => dispatch(removeTask(task)));
+export const deleteTask = task => {
+  TaskApiUtil.deleteTask(task);
+  return removeTask(task);
+};

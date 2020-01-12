@@ -36,6 +36,6 @@ export const updateTask = task => {
 
 export const deleteTask = task => {
   const tasks = fetchTasks();
-  delete tasks[task.id];
+  delete tasks[task.status][task.id];
   saveTasks(tasks);
 };
