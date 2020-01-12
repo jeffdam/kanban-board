@@ -1,5 +1,5 @@
 import React from 'react';
-import BacklogListContainer from '../components/lists/backlog_list_container';
+import TaskListContainer from '../components/task_list/task_list_container';
 
 class KanbanBoard extends React.Component {
   componentDidMount() {
@@ -8,7 +8,12 @@ class KanbanBoard extends React.Component {
 
   render() {
     return (
-      <BacklogListContainer />
+      <section>
+        <TaskListContainer listType={"backlog"}/>
+        <TaskListContainer listType={"priority"}/>
+        <TaskListContainer listType={"inProgress"}/>
+        <TaskListContainer listType={"completed"}/>
+      </section>
     )
   }
 }

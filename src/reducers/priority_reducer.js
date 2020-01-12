@@ -1,16 +1,16 @@
-import { RECEIVE_TASKS, RECEIVE_BACKLOG_TASK, REMOVE_BACKLOG_TASK } from "../actions/task_action";
+import { RECEIVE_TASKS, RECEIVE_PRIORITY_TASK, REMOVE_PRIORITY_TASK } from "../actions/task_action";
 
-const backlogReducer = (oldState = {}, action) => {
+const priorityReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let newState;
   switch (action.type) {
     case RECEIVE_TASKS:
-      newState = Object.assign({}, oldState, action.tasks.backlog);
+      newState = Object.assign({}, oldState, action.tasks.priority);
       return newState;
-    case RECEIVE_BACKLOG_TASK:
+    case RECEIVE_PRIORITY_TASK:
       newState = Object.assign({}, oldState, { [action.task.id]: action.task });
       return newState;
-    case REMOVE_BACKLOG_TASK:
+    case REMOVE_PRIORITY_TASK:
       newState = Object.assign({}, oldState);
       delete newState[action.task.id];
       return newState;
@@ -19,4 +19,4 @@ const backlogReducer = (oldState = {}, action) => {
   }
 };
 
-export default backlogReducer;
+export default priorityReducer;

@@ -3,6 +3,25 @@ import * as TaskApiUtil from "../api_utils/task_api_util";
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_BACKLOG_TASK = "RECEIVE_BACKLOG_TASK";
 export const REMOVE_BACKLOG_TASK = "REMOVE_BACKLOG_TASK";
+export const RECEIVE_PRIORITY_TASK = "RECEIVE_PRIORITY_TASK";
+export const REMOVE_PRIORITY_TASK = "REMOVE_PRIORITY_TASK";
+export const RECEIVE_IN_PROGRESS_TASK = "RECEIVE_IN_PROGRESS_TASK";
+export const REMOVE_IN_PROGRESS_TASK = "REMOVE_IN_PROGRESS_TASK";
+export const RECEIVE_COMPLETED_TASK = "RECEIVE_COMPLETED_TASK";
+export const REMOVE_COMPLETED_TASK = "REMOVE_COMPLETED_TASK";
+
+const receiveTaskTypes = {
+  backlog: RECEIVE_BACKLOG_TASK,
+  priority: RECEIVE_PRIORITY_TASK,
+  inProgress: RECEIVE_IN_PROGRESS_TASK,
+  completed: RECEIVE_COMPLETED_TASK
+};
+const removeTaskTypes = {
+  backlog: REMOVE_BACKLOG_TASK,
+  priority: REMOVE_PRIORITY_TASK,
+  inProgress: REMOVE_IN_PROGRESS_TASK,
+  completed: REMOVE_COMPLETED_TASK
+};
 
 const receiveTasks = tasks => {
   return {
@@ -12,7 +31,7 @@ const receiveTasks = tasks => {
 };
 
 const receiveTask = task => {
-  const type = RECEIVE_BACKLOG_TASK;
+  const type = receiveTaskTypes[task.status];
   return {
     type,
     task
@@ -20,7 +39,7 @@ const receiveTask = task => {
 };
 
 const removeTask = task => {
-  const type = REMOVE_BACKLOG_TASK;
+  const type = removeTaskTypes[task.status];
   return {
     type,
     task
@@ -33,13 +52,13 @@ export const fetchTasks = () => {
 };
 
 export const createTask = task => {
-  const newTask = TaskApiUtil.createTask(task);
-  return receiveTask(newTask);
+  TaskApiUtil.createTask(task);
+  return receiveTask(task);
 };
 
 export const updateTask = task => {
-  const newTask = TaskApiUtil.updateTask(task);
-  return receiveTask(newTask);
+  TaskApiUtil.updateTask(task);
+  return receiveTask(task);
 };
 
 export const deleteTask = task => {

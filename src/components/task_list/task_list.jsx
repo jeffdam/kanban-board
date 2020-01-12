@@ -2,7 +2,7 @@ import React from 'react';
 import TaskDisplay from '../task/task_display';
 import TaskFormCreateContainer from '../task/task_form/task_form_create_container';
 
-class BacklogList extends React.Component {
+class TaskList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -17,7 +17,7 @@ class BacklogList extends React.Component {
   }
 
   render() {
-    const { tasks, deleteTask } = this.props;
+    const { tasks, deleteTask, listType } = this.props;
     const taskDisplayList = tasks.map((task, idx) => 
       <TaskDisplay 
         key={idx} 
@@ -28,8 +28,8 @@ class BacklogList extends React.Component {
 
     const taskForm = this.state.formDisplayState ? (
       <TaskFormCreateContainer
-        status={"backlog"}
-        changeFormState={this.changeFormState()}
+        status={listType}
+        hideForm={this.changeFormState()}
       />
     ) : (
       <button onClick={this.changeFormState()}>Add task</button>
@@ -37,12 +37,12 @@ class BacklogList extends React.Component {
 
     return (
       <article>
-        <h2>BACKLOG</h2>
-        { taskDisplayList }
-        { taskForm }
+        <h2>{listType.toUpperCase()}</h2>
+        {taskDisplayList}
+        {taskForm}
       </article>
-    )
+    );
   }
 }
 
-export default BacklogList;
+export default TaskList;

@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
-import BacklogList from './backlog_list';
+import TaskList from './task_list';
 import { deleteTask } from "../../actions/task_action";
 
-const mapStateToProps = ({ entities }) => {
-  const tasks = Object.values(entities.backlog);
+const mapStateToProps = ({ entities }, { listType }) => {
+  const tasks = Object.values(entities[listType]);
   return {
+    listType,
     tasks
   };
 };
@@ -15,4 +16,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(BacklogList);
+export default connect(mapStateToProps, mapDispatchToProps)(TaskList);
