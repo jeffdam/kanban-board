@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskListContainer from '../components/task_list/task_list_container';
+import TaskListContainer from '../components/task/task_list/task_list_container';
 
 class KanbanBoard extends React.Component {
   componentDidMount() {
