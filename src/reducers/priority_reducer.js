@@ -5,8 +5,7 @@ const priorityReducer = (oldState = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_TASKS:
-      newState = Object.assign({}, oldState, action.tasks.priority);
-      return newState;
+      return action.tasks.priority;
     case RECEIVE_PRIORITY_TASK:
       newState = Object.assign({}, oldState, { [action.task.id]: action.task });
       return newState;

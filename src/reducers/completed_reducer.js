@@ -5,8 +5,7 @@ const completedReducer = (oldState = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_TASKS:
-      newState = Object.assign({}, oldState, action.tasks.completed);
-      return newState;
+      return action.tasks.completed;
     case RECEIVE_COMPLETED_TASK:
       newState = Object.assign({}, oldState, { [action.task.id]: action.task });
       return newState;

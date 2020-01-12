@@ -44,8 +44,7 @@ export const changeStatus = task => {
   const tasks = fetchTasks();
   delete tasks[task.status][task.id];
   task.status = STATUSES[STATUSES.indexOf(task.status) + 1];
-  const newTask = { [task.id]: task };
-  tasks[task.status] = Object.assign({}, tasks[task.status], newTask);
+  tasks[task.status][task.id] = task;
   saveTasks(tasks);
   return tasks;
 };

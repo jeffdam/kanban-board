@@ -5,8 +5,7 @@ const backlogReducer = (oldState = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_TASKS:
-      newState = Object.assign({}, oldState, action.tasks.backlog);
-      return newState;
+      return action.tasks.backlog;
     case RECEIVE_BACKLOG_TASK:
       newState = Object.assign({}, oldState, { [action.task.id]: action.task });
       return newState;

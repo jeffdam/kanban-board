@@ -5,8 +5,7 @@ const inProgressReducer = (oldState = {}, action) => {
   let newState;
   switch (action.type) {
     case RECEIVE_TASKS:
-      newState = Object.assign({}, oldState, action.tasks.inProgress);
-      return newState;
+      return action.tasks.inProgress;
     case RECEIVE_IN_PROGRESS_TASK:
       newState = Object.assign({}, oldState, { [action.task.id]: action.task });
       return newState;
