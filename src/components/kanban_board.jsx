@@ -1,10 +1,16 @@
 import React from 'react';
-import uniqid from 'uniqid';
+import BacklogListContainer from '../components/backlog/backlog_list_container';
 
-const KanbanBoard = () => {
-  return (
-  <h1>{uniqid()}</h1>
-  )
-};
+class KanbanBoard extends React.Component {
+  componentDidMount() {
+    this.props.fetchTasks();
+  }
+
+  render() {
+    return (
+      <BacklogListContainer />
+    )
+  }
+}
 
 export default KanbanBoard;

@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import KanbanBoard from './components/kanban_board';
+import KanbanBoardContainer from './components/kanban_board_container';
 
 function App() {
   return (
-    <KanbanBoard />
+    <KanbanBoardContainer />
   );
 }
 
