@@ -22,7 +22,7 @@ class TaskForm extends React.Component {
 
   render() {
     const { formType } = this.props;
-    const { title, description, dueDate } = this.state;
+    const { title, notes, dueDate } = this.state;
     return (
       <article className="task-form">
         <div className="task-form-header">
@@ -44,12 +44,12 @@ class TaskForm extends React.Component {
             />
           </label>
           <label>
-            Description
+            Notes
             <input
               type="text"
-              value={description}
-              placeholder="Description"
-              onChange={this.handleUpdate("description")}
+              value={notes}
+              placeholder="Notes"
+              onChange={this.handleUpdate("notes")}
             />
           </label>
           <label>
